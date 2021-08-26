@@ -1,17 +1,6 @@
 import { React, useState } from "react";
 import "./style.css";
-import NavBar2 from "../../Components/NavBar2"; // not working
-import NavBar from "../../Components/NavBar/NavBar"; // working
-
-// **** this is working ***
-// function Home() {
-//   return (
-//     <p>Homepage Yo</p>
-//   );
-// }
-
-// export default Home;
-
+import NavBar from "../../Components/NavBar";
 const Home = () => {
   const [isOpen, setOpen] = useState(false);
 
@@ -21,7 +10,7 @@ const Home = () => {
 
   return (
     <>
-      <NavBar2 toggle={toggle} />
+      <NavBar toggle={toggle} />
     </>
   );
 };

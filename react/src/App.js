@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Pitch from "./pages/Pitch";
 import NoMatch from "./pages/NoMatch";
-import NavBar from "./Components/NavBar/NavBar";
-import NavBar2 from "./Components/NavBar2";
 
 // ******* this is working! ************
 //function App() {
