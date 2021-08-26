@@ -24,7 +24,10 @@
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "react-icons": "^4.2.0",
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.3.1"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",
