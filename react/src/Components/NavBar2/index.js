@@ -13,6 +13,7 @@ import {
 const NavBar2 = ({ toggle }) => {
   return (
     <>
+      hi
       <Nav>
         <NavBarContainer>
           <NavLogo onClick={toggle} to="/">
