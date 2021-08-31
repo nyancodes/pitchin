@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const Nav = styled.nav`
   background: #000;
-  height: 80px;
+  height: 70px;
   display: flex;
   width: 100%;
   justify-content: center;
@@ -27,7 +27,7 @@ export const NavBarContainer = styled.div`
   max-width: 1100px;
 `;
 
-export const NavLogo = styled(Link)`
+export const NavLogo = styled(NavLink)`
   color: #fff;
   justify-self: flex-start;
   cursor: pointer;
@@ -70,7 +70,7 @@ export const NavItem = styled.li`
   height: 80px;
 `;
 
-export const NavLinks = styled(Link)`
+export const NavLinks = styled(NavLink)`
   color: #fff;
   display: flex;
   align-items: center;
@@ -80,7 +80,7 @@ export const NavLinks = styled(Link)`
   cursor: pointer;
 
   &.active {
-    border-bottom: 3px solid #6c62ff;
+    color: yellow;
   }
 `;
 
@@ -93,7 +93,7 @@ export const NavBtn = styled.nav`
   }
 `;
 
-export const NavBtnLink = styled(Link)`
+export const NavBtnLink = styled(NavLink)`
   border-radius: 50px;
   background: #6c62ff;
   white-space: nowrap;
