@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import { FaBars } from "react-icons/fa";
 
 import {
   Nav,
@@ -15,16 +16,24 @@ const NavBar = ({ toggle }) => {
     <>
       <Nav>
         <NavBarContainer>
-          <NavLogo onClick={toggle} to="/">
-            nyan.codes
-          </NavLogo>
+          <NavLogo to="/">PitchIn</NavLogo>
+          <MobileIcon onClick={toggle}>
+            <FaBars />
+          </MobileIcon>
           <NavMenu>
             <NavItem>
-              <NavLinks to="/">Home</NavLinks>
+              <NavLinks to="/pitches" activeClassName="active">
+                Explore
+              </NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="/pitches">Explore</NavLinks>
+              <NavLinks to="/login" activeClassName="active">
+                Login
+              </NavLinks>
             </NavItem>
+            {/* <NavItem>
+              <NavLinks to="/start">Start a Pitch</NavLinks>
+            </NavItem> */}
           </NavMenu>
         </NavBarContainer>
       </Nav>
