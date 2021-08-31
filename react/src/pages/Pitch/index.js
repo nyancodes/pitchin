@@ -1,10 +1,31 @@
-import React from "react";
-import './style.css';
+// import React from "react";
+// import './style.css';
 
-function Pitch() {
+// function Pitch() {
+//   return (
+//     <p>View all Pitches</p>
+//   );
+// }
+
+// export default Pitch;
+
+import { React, useState } from "react";
+import "./style.css";
+import NavBar from "../../components/NavBar";
+import Sidebar from "../../components/Sidebar";
+const Pitch = () => {
+  const [isOpen, setOpen] = useState(false);
+
+  const toggle = () => {
+    setOpen(!isOpen);
+  };
+
   return (
-    <p>View all Pitches</p>
+    <>
+      <NavBar toggle={toggle} />
+      <Sidebar isOpen={isOpen} toggle={toggle} />
+    </>
   );
-}
+};
 
 export default Pitch;
