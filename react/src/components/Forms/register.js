@@ -1,5 +1,5 @@
 import NavBar from "../NavBar";
-import { useState, React } from "react";
+import { useState, useRef, React } from "react";
 import Sidebar from "../Sidebar";
 import {
   MainContainer,
@@ -14,6 +14,23 @@ import {
 
 const Register = () => {
   const [isOpen, setOpen] = useState(false);
+  const fullNameInput = useRef(null);
+  const emailAddressInput = useRef(null);
+  const passwordInput = useRef(null);
+
+  const submitRegistration = () => {
+
+    console.log("register me");
+    if(fullNameInput.current && fullNameInput.current.value &&
+       emailAddressInput.current && emailAddressInput.current.value &&
+       passwordInput.current && passwordInput.current.value) {
+      console.log(fullNameInput.current.value);
+      console.log(emailAddressInput.current.value);
+      console.log(passwordInput.current.value);
+    }
+
+
+  }
 
   const toggle = () => {
     setOpen(!isOpen);
@@ -26,12 +43,12 @@ const Register = () => {
       <MainContainer>
         <WelcomeText>Sign Up</WelcomeText>
         <InputContainer>
-          <Input type="text" placeholder="Full Name" />
-          <Input type="text" placeholder="Email address" />
-          <Input type="password" placeholder="Password" />
+          <Input ref={fullNameInput} type="text" placeholder="Full Name" />
+          <Input ref={emailAddressInput} type="text" placeholder="Email address" />
+          <Input ref={passwordInput} type="password" placeholder="Password" />
         </InputContainer>
         <ButtonContainer>
-          <Button>Sign Up for an account!</Button>
+          <Button onClick={submitRegistration}>Sign Up for an account!</Button>
         </ButtonContainer>
         <LoginLink to="/login">Have an account? Click here to Login.</LoginLink>
       </MainContainer>
