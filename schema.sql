@@ -6,10 +6,12 @@ CREATE DATABASE pitchin_db;
 
 
 CREATE TABLE "user" (
-  id SERIAL PRIMARY KEY,
-  name TEXT,
-  email TEXT,
-  password TEXT
+  username VARCHAR(25) PRIMARY KEY,
+  password VARCHAR(25) NOT NULL,
+  first_name VARCHAR(25) NOT NULL,
+  last_name VARCHAR(25) NOT NULL,
+  email VARCHAR(25) NOT NULL
+    CHECK (position('@' IN email) > 1)
 );
 
 CREATE TABLE pitch (
@@ -18,5 +20,5 @@ CREATE TABLE pitch (
   is_public BOOLEAN DEFAULT true,
   cost DECIMAL DEFAULT 0,
   recipients TEXT,
-  user_id INTEGER REFERENCES "user"
+  username INTEGER REFERENCES "user"
 );
