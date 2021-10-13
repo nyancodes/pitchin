@@ -14,23 +14,27 @@ import {
 
 const Register = () => {
   const [isOpen, setOpen] = useState(false);
-  const fullNameInput = useRef(null);
+  const firstNameInput = useRef(null);
+  const lastNameInput = useRef(null);
   const emailAddressInput = useRef(null);
   const passwordInput = useRef(null);
 
   const submitRegistration = () => {
-
-    console.log("register me");
-    if(fullNameInput.current && fullNameInput.current.value &&
-       emailAddressInput.current && emailAddressInput.current.value &&
-       passwordInput.current && passwordInput.current.value) {
-      console.log(fullNameInput.current.value);
+    if (
+      (firstNameInput.current && firstNameInput.current.value,
+      lastNameInput.current &&
+        lastNameInput.current.value &&
+        emailAddressInput.current &&
+        emailAddressInput.current.value &&
+        passwordInput.current &&
+        passwordInput.current.value)
+    ) {
+      console.log(firstNameInput.current.value);
+      console.log(lastNameInput.current.value);
       console.log(emailAddressInput.current.value);
       console.log(passwordInput.current.value);
     }
-
-
-  }
+  };
 
   const toggle = () => {
     setOpen(!isOpen);
@@ -43,8 +47,14 @@ const Register = () => {
       <MainContainer>
         <WelcomeText>Sign Up</WelcomeText>
         <InputContainer>
-          <Input ref={fullNameInput} type="text" placeholder="Full Name" />
-          <Input ref={emailAddressInput} type="text" placeholder="Email address" />
+          <Input ref={firstNameInput} type="text" placeholder="First Name" />
+          <Input ref={lastNameInput} type="text" placeholder="Last Name" />
+
+          <Input
+            ref={emailAddressInput}
+            type="text"
+            placeholder="Email address"
+          />
           <Input ref={passwordInput} type="password" placeholder="Password" />
         </InputContainer>
         <ButtonContainer>
