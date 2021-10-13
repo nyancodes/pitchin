@@ -21,14 +21,18 @@
     "react": "cd react && npm run start",
     "install": "cd react && npm install",
     "build": "cd react && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "create-db": "psql -U postgres < schema.sql",
+    "seed-db": "psql -U postgres < seed.sql"
   },
   "dependencies": {
     "axios": "^0.23.0",
     "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "passport": "^0.4.1",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "pg": "^8.7.1"
   },
   "devDependencies": {
     "concurrently": "^4.1.0",

@@ -20,5 +20,5 @@ CREATE TABLE pitch (
   is_public BOOLEAN DEFAULT true,
   cost DECIMAL DEFAULT 0,
   recipients TEXT,
-  username INTEGER REFERENCES "user"
+  username VARCHAR REFERENCES "user"
 );

@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const db = require("./db");
 
 const pitchRoutes = require("./routes/pitch");
 const usersRoutes = require("./routes/users");
