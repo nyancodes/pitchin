@@ -13,6 +13,8 @@ import { React, useState } from "react";
 import "./style.css";
 import NavBar from "../../components/NavBar";
 import Sidebar from "../../components/Sidebar";
+import FetchPitches from "../../components/FetchPitches";
+
 const Pitch = () => {
   const [isOpen, setOpen] = useState(false);
 
@@ -24,6 +26,7 @@ const Pitch = () => {
     <>
       <NavBar toggle={toggle} />
       <Sidebar isOpen={isOpen} toggle={toggle} />
+      <FetchPitches />
     </>
   );
 };
