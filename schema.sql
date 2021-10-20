@@ -5,7 +5,7 @@ CREATE DATABASE pitchin_db;
 \connect pitchin_db
 
 
-CREATE TABLE "user" (
+CREATE TABLE users (
   username VARCHAR(25) PRIMARY KEY,
   password VARCHAR(25) NOT NULL,
   firstName VARCHAR(25) NOT NULL,
@@ -14,11 +14,11 @@ CREATE TABLE "user" (
     CHECK (position('@' IN email) > 1)
 );
 
-CREATE TABLE pitch (
+CREATE TABLE pitches (
   title TEXT,
   description TEXT,
   is_public BOOLEAN DEFAULT true,
   cost DECIMAL DEFAULT 0,
   recipients TEXT,
-  username VARCHAR REFERENCES "user"
+  username VARCHAR REFERENCES users
 );
