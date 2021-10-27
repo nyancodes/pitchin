@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-
+const db = require("../db");
 const BCRYPT_WORK_FACTOR = 12;
 
 const {
@@ -34,17 +34,17 @@ class User {
     }
 
     const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
-
+    console.log(hashedPassword);
     const result = await db.query(
       `INSERT INTO users
            (username,
             password,
-            first_name,
-            last_name,
-            email,
-            is_admin)
-           VALUES ($1, $2, $3, $4, $5, $6)
-           RETURNING username, "firstName, lastName, email"`,
+            firstName,
+            lastName,
+            email
+            )
+           VALUES ($1, $2, $3, $4, $5)
+           RETURNING username, firstName, lastName, email`,
       [username, hashedPassword, firstName, lastName, email]
     );
 
@@ -56,12 +56,12 @@ class User {
   static async authenticate(username, password) {
     // try to find the user first
     const result = await db.query(
-      `SELECT username,
+      `SELECT     username,
                   password,
-                  first_name,
-                  last_name,
+                  firstName,
+                  lastName,
                   email
-           FROM user
+           FROM users
            WHERE username = $1`,
       [username]
     );
