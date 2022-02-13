@@ -1,11 +1,14 @@
 import "./App.css";
 import { React, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {Navbar, Welcome, Footer, Services, Transactions} from './Components';
+
 import Home from "./pages/Home";
 import Pitch from "./pages/Pitch";
 import NoMatch from "./pages/NoMatch";
 import Login from "./components/Forms/login";
 import Register from "./components/Forms/register";
+
 
 // ******* this is working! ************
 //function App() {
@@ -23,14 +26,15 @@ import Register from "./components/Forms/register";
 
 const App = () => {
   return (
-    <Router>
-      <Switch>
-        <Route path="/" component={Home} exact />
-        <Route path="/pitches" component={Pitch} exact />
-        <Route path="/login" component={Login} exact />
-        <Route path="/register" component={Register} exact />
-      </Switch>
-    </Router>
+    <div className="min-h-screen">
+      <div className="gradient-bg-welcome">
+        <Navbar />
+        <Welcome />
+      </div>
+        <Services />
+        <Transactions />
+        <Footer />
+    </div>
   );
 };
 
