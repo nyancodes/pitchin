@@ -1,20 +1,18 @@
-import { useState } from 'react'
-import './index.css'
-import {Navbar, Welcome, Footer, Services ,Transactions} from './components';
+import { useState } from "react";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./index.css";
+import { Navbar, Welcome, Footer, Services, Transactions } from "./components";
+import Home from "./pages/home";
 
 function App() {
-
   return (
-    <div className="min-h-screen">
-      <div className="gradient-bg-welcome">
-        <Navbar />
-        <Welcome />
-      </div>
-      <Services />
-      <Transactions />
-      <Footer />
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
