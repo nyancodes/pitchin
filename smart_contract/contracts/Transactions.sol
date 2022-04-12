@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: UNLICENSED
-
 pragma solidity ^0.8.0;
 
 contract Transactions {
@@ -14,7 +13,7 @@ contract Transactions {
         string keyword
     );
 
-    struct TrsnsferStruct {
+    struct TransferStruct {
         address sender;
         address receiver;
         uint256 amount;
@@ -22,6 +21,8 @@ contract Transactions {
         uint256 timestamp;
         string keyword;
     }
+
+    TransferStruct[] transactions;
 
     function addToBlockchain(
         address payable receiver,
@@ -40,6 +41,7 @@ contract Transactions {
                 keyword
             )
         );
+
         emit Transfer(
             msg.sender,
             receiver,
@@ -50,7 +52,15 @@ contract Transactions {
         );
     }
 
-    function getAll() public view returns (TrsnsferStruct[] memory) {}
+    function getAllTransactions()
+        public
+        view
+        returns (TransferStruct[] memory)
+    {
+        return transactions;
+    }
 
-    function getTransactionCount() public view returns (uint256) {}
+    function getTransactionCount() public view returns (uint256) {
+        return transactionCount;
+    }
 }

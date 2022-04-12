@@ -1,6 +1,6 @@
 const express = require("express");
 const router = new express.Router();
-const User = require("../models/User");
+const User = require("../../models/User");
 const { createToken } = require("../helpers/tokens");
 
 router.post("/register", async function (req, res, next) {

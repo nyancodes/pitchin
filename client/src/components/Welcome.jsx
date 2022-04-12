@@ -1,10 +1,27 @@
+import React, { useContext, useEffect } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 import ConnectWallet from "./ConnectWallet";
+import { TransactionContext } from "../context/TransactionContext";
 
 const Welcome = () => {
-  //connectWallet
+  const {
+    currentAccount,
+    connectWallet,
+    handleChange,
+    sendTransaction,
+    formData,
+    isLoading,
+  } = useContext(TransactionContext);
+
+  const handleSubmit = (e) => {
+    const { addressTo, amount, keyword, message } = formData;
+    e.preventDefault();
+    if (!addressTo || !amount || !keyword || !message) return;
+    sendTransaction();
+  };
+
   const commonStyles =
     "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
 
@@ -29,7 +46,8 @@ const Welcome = () => {
           <p className="text-left mt-5 text-white font-light md:w-9/12 w-11/12 text-base">
             Virtual Piggy Bank for you and your loved ones
           </p>
-          <ConnectWallet />
+          {!currentAccount && <ConnectWallet handleConnect={connectWallet} />}
+
           <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
             <div className={`rounded-tl-2xl ${commonStyles}`}>Reliability</div>
             <div className={commonStyles}>Security</div>
@@ -63,25 +81,25 @@ const Welcome = () => {
             placeholder="Address To"
             name="addressTo"
             type="text"
-            // handleChange={handleChange}
+            handleChange={handleChange}
           />
           <Input
             placeholder="Amount (ETH)"
             name="amount"
             type="number"
-            // handleChange={handleChange}
+            handleChange={handleChange}
           />
           <Input
             placeholder="Keyword (Gif)"
             name="keyword"
             type="text"
-            // handleChange={handleChange}
+            handleChange={handleChange}
           />
           <Input
             placeholder="Enter Message"
             name="message"
             type="text"
-            // handleChange={handleChange}
+            handleChange={handleChange}
           />
           <div className="h-[1px] w-full bg-gray-400 my-2" />
           {false ? (
@@ -89,7 +107,7 @@ const Welcome = () => {
           ) : (
             <button
               type="button"
-              // onClick={handleSubmit}
+              onClick={handleSubmit}
               className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] hover:bg-[#3d4f7c] rounded-full cursor-pointer"
             >
               Send now
