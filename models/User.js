@@ -1,12 +1,12 @@
 const bcrypt = require("bcrypt");
-const db = require("../db");
+const db = require("../server/db/index");
 const BCRYPT_WORK_FACTOR = 12;
 
 const {
   NotFoundError,
   BadRequestError,
   UnauthorizedError,
-} = require("../expressError");
+} = require("../server/expressError");
 
 class User {
   static async getUsers() {
